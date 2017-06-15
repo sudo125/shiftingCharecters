@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        var myVar;
+
+function LtR(){
+  clearInterval(myVar);
+myVar = setInterval(function () {
+var t1l = document.getElementById('t1').value.length;
+var t1 =document.getElementById('t1');
+var t2 =document.getElementById('t2');
+
+  t2.value += t1.value.charAt(0);
+  t1.value = t1.value.substr(1, t1l-1);
+}, 2000);
+
+
+}
+
+function RtL(){
+  clearInterval(myVar);
+  
+myVar = setInterval(function () {
+var t2l = document.getElementById('t2').value.length;
+var t1 =document.getElementById('t1');
+var t2 =document.getElementById('t2');
+
+  t1.value = t2.value.charAt(t2l-1) +document.getElementById('t1').value;
+  t2.value = t2.value.substr(0, t2l-1);
+}, 2000);
+
+
+}
+
+function pause(){
+  clearInterval(myVar);
+}
+      </script>
+  </head>
+
+  <body>
+   
+    <h1>Shifting of charecters.</h1>
+      <p>type in a string and then press the bottons to perform actions </pp>
+<input type="text" id="t1">
+<input type="text" id="t2"><br>
+<input type="button" id="f" value=">>" onclick="LtR()" >
+<input type="button" id="p" value="Pause" onclick="pause()" />
+<input type="button" id="b" value="<<" onclick="RtL()" >
+
+
+  </body>
+</html>
